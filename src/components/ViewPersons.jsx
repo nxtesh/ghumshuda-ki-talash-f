@@ -16,9 +16,12 @@ const ViewPersons = () => {
   const fetchPersons = async (name = "", age = "", state = "", city = "") => {
     setLoading(true);
     try {
-      const response = await axios.get("https://ghumshuda-ki-talash-b.onrender.com/persons", {
-        params: { name, age, state, city },
-      });
+      const response = await axios.get(
+        "https://ghumshuda-ki-talash-b.onrender.com/persons",
+        {
+          params: { name, age, state, city },
+        }
+      );
       setPersons(response.data);
     } catch (error) {
       console.error("Error fetching persons:", error);
@@ -52,69 +55,59 @@ const ViewPersons = () => {
         Missing Persons
       </h2>
 
-      <div className="mb-8 flex flex-col sm:flex-row justify-center space-x-4">
-        <input
-          type="text"
-          placeholder="Search by name"
-          value={searchName}
-          maxLength={50}
-          onChange={(e) => setSearchName(e.target.value)}
-          className="px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-black focus:border-black"
-        />
-        {/* <input
-          type="number"
-          placeholder="Search by age"
-          value={searchAge}
-          onChange={(e) =>
-            setSearchAge(Math.max(1, Math.min(110, e.target.value)))
-          }
-          min="1"
-          max="110"
-          className="px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-black focus:border-black"
-        /> */}
+      <div className="mb-8 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+  <input
+    type="text"
+    placeholder="Search by name"
+    value={searchName}
+    maxLength={50}
+    onChange={(e) => setSearchName(e.target.value)}
+    className="w-full sm:w-64 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-black focus:border-black"
+  />
 
-        <select
-          value={searchState}
-          onChange={handleStateChange}
-          className="px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-black focus:border-black"
-        >
-          <option value="">Select State</option>
-          {Object.keys(statesWithCities).map((state) => (
-            <option key={state} value={state}>
-              {state}
-            </option>
-          ))}
-        </select>
-        <select
-          value={searchCity}
-          onChange={(e) => setSearchCity(e.target.value)}
-          className="px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-black focus:border-black"
-          disabled={!searchState}
-        >
-          <option value="">Select City</option>
-          {cities.map((city) => (
-            <option key={city} value={city}>
-              {city}
-            </option>
-          ))}
-        </select>
-        <button
-          onClick={handleSearch}
-          className="bg-black text-white py-2 px-4 rounded-md shadow-md hover:bg-gray-800"
-        >
-          Search
-        </button>
-        <button
-          onClick={toggleView}
-          className="bg-black text-white py-2 px-4 rounded-md shadow-md hover:bg-gray-800"
-        >
-          Toggle View
-        </button>
-      </div>
+  <select
+    value={searchState}
+    onChange={handleStateChange}
+    className="w-full sm:w-64 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-black focus:border-black"
+  >
+    <option value="">Select State</option>
+    {Object.keys(statesWithCities).map((state) => (
+      <option key={state} value={state}>
+        {state}
+      </option>
+    ))}
+  </select>
 
-      <div className="mb-8 text-center">
-        
-      </div>
+  <select
+    value={searchCity}
+    onChange={(e) => setSearchCity(e.target.value)}
+    className="w-full sm:w-64 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-black focus:border-black"
+    disabled={!searchState}
+  >
+    <option value="">Select City</option>
+    {cities.map((city) => (
+      <option key={city} value={city}>
+        {city}
+      </option>
+    ))}
+  </select>
+
+  <button
+    onClick={handleSearch}
+    className="w-full sm:w-auto bg-black text-white py-2 px-4 rounded-md shadow-md hover:bg-gray-800"
+  >
+    Search
+  </button>
+  <button
+    onClick={toggleView}
+    className="w-full sm:w-auto bg-black text-white py-2 px-4 rounded-md shadow-md hover:bg-gray-800"
+  >
+    Toggle View
+  </button>
+</div>
+
+
+      <div className="mb-8 text-center"></div>
 
       {loading ? (
         <p className="text-gray-500 text-center">Loading...</p>
@@ -147,42 +140,45 @@ const ViewPersons = () => {
             ))}
           </div>
         ) : (
-          <table className="w-full border-collapse border border-gray-300">
-            <thead>
-              <tr>
-                <th className="border border-gray-300 px-4 py-2">Name</th>
-                <th className="border border-gray-300 px-4 py-2">Age</th>
-                <th className="border border-gray-300 px-4 py-2">State</th>
-                <th className="border border-gray-300 px-4 py-2">City</th>
-                <th className="border border-gray-300 px-4 py-2">Details</th>
-              </tr>
-            </thead>
-            <tbody>
-              {persons.map((person) => (
-                <tr key={person._id}>
-                  <td className="border border-gray-300 px-4 py-2  text-center">
-                    {person.name}
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2 text-center">
-                    {person.age}
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2 text-center">
-                    {person.state}
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2 text-center">
-                    {person.city}
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2 flex items-center justify-center">
-                    <Link to={`/person/${person._id}`}>
-                      <button className="bg-black text-white py-2 px-4  rounded-md shadow-md hover:bg-gray-800">
-                        View Details
-                      </button>
-                    </Link>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="overflow-x-auto">
+  <table className="w-full border-collapse border border-gray-300">
+    <thead>
+      <tr>
+        <th className="border border-gray-300 px-4 py-2">Name</th>
+        <th className="border border-gray-300 px-4 py-2">Age</th>
+        <th className="border border-gray-300 px-4 py-2">State</th>
+        <th className="border border-gray-300 px-4 py-2">City</th>
+        <th className="border border-gray-300 px-4 py-2">Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      {persons.map((person) => (
+        <tr key={person._id} className="hover:bg-gray-100">
+          <td className="border border-gray-300 px-4 py-2 text-center">
+            {person.name}
+          </td>
+          <td className="border border-gray-300 px-4 py-2 text-center">
+            {person.age}
+          </td>
+          <td className="border border-gray-300 px-4 py-2 text-center">
+            {person.state}
+          </td>
+          <td className="border border-gray-300 px-4 py-2 text-center">
+            {person.city}
+          </td>
+          <td className="border border-gray-300 px-4 py-2 flex items-center justify-center">
+            <Link to={`/person/${person._id}`}>
+              <button className="bg-black text-white py-2 px-4 rounded-md shadow-md hover:bg-gray-800">
+                View Details
+              </button>
+            </Link>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
         )
       ) : (
         <p className="text-gray-500 text-center">No persons found.</p>

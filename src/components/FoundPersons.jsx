@@ -37,7 +37,7 @@ const FoundPersons = () => {
               <img
                 src={`https://ghumshuda-ki-talash-b.onrender.com/${person.picture}`}
                 alt={person.name}
-                className="w-full h-40 object-cover rounded-md mb-4"
+                className="w-full h-80 object-cover rounded-md mb-4"
               />
               <h3 className="text-xl font-semibold text-gray-800 mb-2 text-center">{person.name}</h3>
               {/* <a

@@ -36,36 +36,37 @@ const HomePage = () => {
   return (
     <div className="w-full bg-white text-black">
       {/* Hero Section */}
-      <section className="bg-black text-white py-20 w-full">
-        <div className="container mx-auto text-center w-full">
-          <h1 className="text-5xl font-bold mb-6">
-            <Typewriter
-              options={{
-                strings: ["Find Missing Loved Ones"],
-                autoStart: true,
-                loop: true,
-              }}
-            />
-          </h1>
-          <p className="text-xl mb-10">
-            Helping families reconnect with their missing loved ones.
-          </p>
-          <div>
-            <a
-              href="/add-person"
-              className="bg-white text-black px-8 py-3 rounded-full mr-4 text-lg"
-            >
-              Add a Missing Person
-            </a>
-            <a
-              href="/view-persons"
-              className="bg-white text-black px-8 py-3 rounded-full text-lg"
-            >
-              View Missing Persons
-            </a>
-          </div>
-        </div>
-      </section>
+      <section className="bg-black text-white py-10 w-full">
+  <div className="container mx-auto text-center w-full my-5 px-4">
+    <h1 className="text-4xl md:text-5xl font-bold mb-6">
+      <Typewriter
+        options={{
+          strings: ["Find Missing Loved Ones"],
+          autoStart: true,
+          loop: true,
+        }}
+      />
+    </h1>
+    <p className="text-lg md:text-xl mb-10">
+      Helping families reconnect with their missing loved ones.
+    </p>
+    <div className="flex flex-col sm:flex-row justify-center items-center">
+      <a
+        href="/add-person"
+        className="bg-white text-black px-8 py-3 rounded-full mb-4 sm:mb-0 sm:mr-4 text-lg"
+      >
+        Add a Missing Person
+      </a>
+      <a
+        href="/view-persons"
+        className="bg-white text-black px-8 py-3 rounded-full text-lg"
+      >
+        View Missing Persons
+      </a>
+    </div>
+  </div>
+</section>
+
 
       {/* How It Works Section */}
       <section className="py-20 bg-white w-full">

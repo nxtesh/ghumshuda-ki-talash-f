@@ -73,7 +73,7 @@ const PersonDetail = () => {
               <img
                 src={`https://ghumshuda-ki-talash-b.onrender.com/${person.picture}`}
                 alt={person.name}
-                className="w-64 h-64 object-cover rounded-full shadow-lg mb-4 border border-gray-300"
+                className="w-64 h-64 mt-16 object-cover rounded-full shadow-lg mb-4 border border-gray-300"
               />
               <h2 className="text-3xl font-semibold text-black mb-4">
                 {person.name}
