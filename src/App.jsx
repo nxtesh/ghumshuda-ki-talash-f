@@ -109,7 +109,7 @@ function App() {
       <footer className="py-5 bg-black text-white w-full">
         <div className="container mx-auto text-center w-full">
           <p>
-            &copy; 2024 Ghumshuda ki Talash. Team: Nitesh, Veer, Uday, Vinit.
+            &copy; 2024 Ghumshuda ki Talash.
           </p>
         </div>
       </footer>
