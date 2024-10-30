@@ -12,7 +12,7 @@ const PersonDetail = () => {
   useEffect(() => {
     const fetchPerson = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/persons/${id}`);
+        const response = await axios.get(`https://ghumshuda-ki-talash-b.onrender.com/persons/${id}`);
         setPerson(response.data);
         setLoading(false);
       } catch (error) {
@@ -31,7 +31,7 @@ const PersonDetail = () => {
     if (!confirmMarkAsFound) return;
 
     try {
-      await axios.post(`http://localhost:5000/persons/${id}/mark-as-found`);
+      await axios.post(`https://ghumshuda-ki-talash-b.onrender.com/persons/${id}/mark-as-found`);
       alert("Person marked as found successfully");
       navigate("/found-persons");
     } catch (error) {
@@ -46,7 +46,7 @@ const PersonDetail = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:5000/persons/${id}`);
+      await axios.delete(`https://ghumshuda-ki-talash-b.onrender.com/persons/${id}`);
       alert("Person deleted successfully");
       navigate("/");
     } catch (error) {
@@ -71,7 +71,7 @@ const PersonDetail = () => {
             {/* Left section: Image, Name, and Mark as Found Button */}
             <div className="w-1/2 flex flex-col items-center">
               <img
-                src={`http://localhost:5000/${person.picture}`}
+                src={`https://ghumshuda-ki-talash-b.onrender.com/${person.picture}`}
                 alt={person.name}
                 className="w-64 h-64 object-cover rounded-full shadow-lg mb-4 border border-gray-300"
               />

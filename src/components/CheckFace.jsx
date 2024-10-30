@@ -20,7 +20,7 @@ const CheckFace = () => {
     formData.append('picture', picture);
 
     try {
-      const res = await axios.post('http://localhost:5000/check-face', formData, {
+      const res = await axios.post('https://ghumshuda-ki-talash-b.onrender.com/check-face', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       setResult(res.data);

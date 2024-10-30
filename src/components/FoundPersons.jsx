@@ -10,7 +10,7 @@ const FoundPersons = () => {
       setLoading(true);
       try {
         // Correct API call to only fetch found persons
-        const response = await axios.get("http://localhost:5000/found-persons");
+        const response = await axios.get("https://ghumshuda-ki-talash-b.onrender.com/found-persons");
         setPersons(response.data);
       } catch (error) {
         console.error("Error fetching found persons:", error);

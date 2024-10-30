@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import ViewPersons from "./ViewPersons";
+// import ViewPersons from "./ViewPersons";
 import Typewriter from "typewriter-effect";
 
 const HomePage = () => {
@@ -12,7 +12,7 @@ const HomePage = () => {
 
   const fetchStatistics = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/statistics");
+      const response = await axios.get("https://ghumshuda-ki-talash-b.onrender.com/statistics");
       setStatistics(response.data);
     } catch (error) {
       console.error("Error fetching statistics:", error);
@@ -21,7 +21,7 @@ const HomePage = () => {
 
   const fetchRecentCases = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/recent-cases");
+      const response = await axios.get("https://ghumshuda-ki-talash-b.onrender.com/recent-cases");
       setRecentCases(response.data);
     } catch (error) {
       console.error("Error fetching recent cases:", error);

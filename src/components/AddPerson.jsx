@@ -43,7 +43,7 @@ const AddPerson = () => {
     if (picture) formData.append("picture", picture);
 
     try {
-      await axios.post("http://localhost:5000/add-person", formData, {
+      await axios.post("https://ghumshuda-ki-talash-b.onrender.com/add-person", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       // Reset form fields

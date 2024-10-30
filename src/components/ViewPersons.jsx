@@ -128,7 +128,7 @@ const ViewPersons = () => {
               >
                 <Link to={`/person/${person._id}`}>
                   <img
-                    src={`http://localhost:5000/${person.picture}`}
+                    src={`https://ghumshuda-ki-talash-b.onrender.com/${person.picture}`}
                     alt={person.name}
                     className="w-full h-80 object-cover rounded-t-lg"
                   />

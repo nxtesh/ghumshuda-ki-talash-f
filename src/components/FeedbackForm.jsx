@@ -7,7 +7,7 @@ const FeedbackForm = ({ personId, onFeedbackAdded }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:5000/persons/${personId}/feedback`, {
+      const response = await axios.post(`https://ghumshuda-ki-talash-b.onrender.com/persons/${personId}/feedback`, {
         text: feedbackText,
       });
       setFeedbackText("");
