@@ -35,7 +35,7 @@ const FoundPersons = () => {
               className="bg-white p-4 rounded-lg shadow-lg border border-gray-300"
             >
               <img
-                src={`http://localhost:5000/${person.picture}`}
+                src={`https://ghumshuda-ki-talash-b.onrender.com/${person.picture}`}
                 alt={person.name}
                 className="w-full h-40 object-cover rounded-md mb-4"
               />

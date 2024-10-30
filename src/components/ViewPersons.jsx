@@ -16,7 +16,7 @@ const ViewPersons = () => {
   const fetchPersons = async (name = "", age = "", state = "", city = "") => {
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:5000/persons", {
+      const response = await axios.get("https://ghumshuda-ki-talash-b.onrender.com/persons", {
         params: { name, age, state, city },
       });
       setPersons(response.data);
